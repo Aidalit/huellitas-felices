@@ -52,7 +52,7 @@ const HomePage = () => {
                   </p>
                   <div className="flex justify-center">
                     <button
-                      onClick={() => router.push(`/perfiles/${pet.name}`)}
+                      onClick={() => router.push(`/${pet.name}`)}
                       className="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition"
                     >
                       Ver Perfil
