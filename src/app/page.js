@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Header from "./componentes/header";
-import Footer from "./componentes/footer";
+import Header from "@/app/componentes/header";
+import Footer from "@/app/componentes/footer";
 
 export default function Home() {
   const [email, setEmail] = useState("");

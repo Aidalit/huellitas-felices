@@ -1,10 +1,9 @@
-const perfilesPage = () => {
+const testPage = () => {
   return (
     <div>
-      <h1>Perfiles Page</h1>
-      <p>Please select a profile to continue.</p>
+      <h1>Login</h1>
     </div>
   );
 };
 
-export default perfilesPage;
+export default testPage;

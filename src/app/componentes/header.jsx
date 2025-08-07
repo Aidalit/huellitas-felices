@@ -1,3 +1,4 @@
+"use client";
 const Header = () => {
   return (
     <header className="bg-pink-200 py-6 shadow-md">

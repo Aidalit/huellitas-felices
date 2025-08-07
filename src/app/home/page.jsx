@@ -3,10 +3,12 @@ import { useServices } from "@/data/providers/ServicesProvider";
 import { useEffect, useState } from "react";
 import Header from "../componentes/header";
 import Footer from "../componentes/footer";
+import { useRouter } from "next/navigation"; // 👈 Importa el router
 
 const HomePage = () => {
   const { getProducts } = useServices();
   const [pets, setPets] = useState([]);
+  const router = useRouter(); // 👈 Inicializa el router
 
   const loadPets = async () => {
     const pets = await getProducts();
@@ -49,7 +51,10 @@ const HomePage = () => {
                     {pet.description}
                   </p>
                   <div className="flex justify-center">
-                    <button className="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition">
+                    <button
+                      onClick={() => router.push(`/perfiles/${pet.name}`)}
+                      className="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition"
+                    >
                       Ver Perfil
                     </button>
                   </div>

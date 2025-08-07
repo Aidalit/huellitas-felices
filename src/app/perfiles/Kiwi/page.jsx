@@ -1,27 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Header from "@/app/componentes/header";
-import Footer from "@/app/componentes/footer";
-import { useServices } from "@/data/providers/ServicesProvider";
+import Header from "../../componentes/header";
+import Footer from "../../componentes/footer";
 
-const perfilPage = (props) => {
-  const { params } = props;
-  const { profile } = params;
-  const { getProducts } = useServices();
-  const [pet, setPet] = useState(null);
-  useEffect(() => {
-    console.log("Cargando perfil:", profile);
-    const loadPet = async () => {
-      const products = await getProducts();
-      const foundPet = products.find(
-        (p) => p.name.toLowerCase() === profile.toLowerCase()
-      );
-      setPet(foundPet);
-    };
-    loadPet();
-  }, [profile]);
-
+const KiwiPage = () => {
   const [posts] = useState([
     {
       id: 1,
@@ -56,17 +39,20 @@ const perfilPage = (props) => {
           ← Volver atrás
         </button>
         <h1 className="text-3xl font-bold mt-8 text-green-600 text-center">
-          🦜 Perfil de {pet?.name}, el {pet?.breed} 🦜
+          🦜 Perfil de Kiwi, el Periquito 🦜
         </h1>
         <p className="mt-2 text-center text-gray-700">
-          <strong>Nombre:</strong> {pet?.name} <br />
-          <strong>Edad:</strong> {pet?.age} <br />
-          <strong>Especie:</strong> {pet?.species} <br />
-          <strong>Descripcion:</strong> {pet?.description} <br />
-          <strong>Hobbies:</strong> {pet?.hobbies} <br />
+          <strong>Nombre:</strong> Kiwi <br />
+          <strong>Edad:</strong> 1 año <br />
+          <strong>Especie:</strong> Periquito <br />
+          <strong>Hobbies:</strong> Cantar, volar por la casa, comer semillas
+          frescas
         </p>
 
-        <p className="mt-4 text-gray-600 text-center italic">{pet?.sobremi}</p>
+        <p className="mt-4 text-gray-600 text-center italic">
+          ¡Hola! Soy Kiwi, un periquito curioso y alegre. Me encanta compartir
+          mis aventuras y canciones con todos ustedes 🦜✨
+        </p>
 
         <hr className="my-6 border-gray-300" />
 
@@ -124,4 +110,4 @@ const perfilPage = (props) => {
   );
 };
 
-export default perfilPage;
+export default KiwiPage;
